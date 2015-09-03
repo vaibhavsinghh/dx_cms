@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<%= javascript_include_tag('application') %>-->
+  <%= stylesheet_link_tag('application',:media => 'all') %>
+  <title>Dx Cms | <%= @page_title || "admin" %></title>
+  
+</head>
+<body>
+  <body>
+  <h2 style="color:red"> Employee Management</h2>
+  <% if !flash[:notice].blank? %>
+    <div class="notice">
+    	<%= flash[:notice] %>
+    </div>
+    <% end %>
+<%= yield %>
+  <footer id="footer"><p> Developer: <span style="color:red">Vaibhav</span> </p></footer>
+</body>
+</html>

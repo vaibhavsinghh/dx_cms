@@ -1,0 +1,18 @@
+<% @page_title = "New" %>
+<%= link_to("<< Home", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="employee new">
+  <h2>Add Employee</h2>
+
+  <%= form_for(:employee, :url => {:action => 'create'}) do |f| %>
+
+   
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Confirm") %>
+    </div>
+
+  <% end %>
+</div>
+

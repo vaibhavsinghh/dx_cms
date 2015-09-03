@@ -1,0 +1,17 @@
+<%= link_to("<< Home", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="employees">
+  <h2>Remove employee</h2>
+
+  <%= form_for(:employee, :url => {:action => 'destroy', :emp_id => @employee.emp_id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this ticket?</p>
+
+    <p class="reference-name"><%= @employee.emp_name %></p>
+
+    <div class="form-buttons">
+      <%= submit_tag("Confirm") %>
+    </div>
+
+  <% end %>
+</div>

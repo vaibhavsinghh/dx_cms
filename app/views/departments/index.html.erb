@@ -1,0 +1,25 @@
+<% @page_title = "Employees" %>
+<div class="Employees index">
+<h2>Employees </h2>
+<%= link_to("<< Employee list", {:controller => 'employees', :action => 'index'}, :class => 'back-link') %><br />
+<%= link_to(image_tag('plus_sign.png') + " Add Employee", {:controller => 'employees',:action => 'new'},:class => 'action new') %><br ><br >
+<%= pluralize(@departments.size,'Department')%>
+<table class="listing" summary="Employee list">
+	<tr class="header">
+		<th>DepartmentID</th>
+		<th>Name</th>
+		<th>HeadOfDepartment</th>
+		<th>TotalEmployees</th>
+		<th>Location</th>
+    </tr>
+    <% @departments.each do |department| %>
+    <tr>
+    	<td><%= department.dept_id %></td>
+    	<td><%= department.dept_name %></td>
+    	<td><%= department.dept_head %></td>
+    	<td><%= Employee.where(:dept_id=>department.dept_id).count %></td>
+    	<td><%= department.location %></td>
+    </tr>
+    <% end %>
+</table>
+</div>
